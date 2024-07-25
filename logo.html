@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NF LOGO</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center; /* corrected property name */
+            align-items: center;
+            background-color: black;
+        }
+
+        .box {
+            position: relative;
+            width: 150px;
+            height: 250px;
+        }
+
+        span {
+            position: absolute;
+            width: 50px;
+            height: 0;
+            background-color: red;
+        }
+
+        .box :nth-child(1) { /* corrected selector */
+            left: 0;
+            bottom: 0;
+            animation: animate 0.5s linear forwards;
+            animation-delay: 0.8s;
+        }
+
+        .box :nth-child(2) { /* corrected selector */
+            top: 0;
+            left: 0;
+            transform: skew(22deg);
+            transform-origin: top left;
+            box-shadow: 0px 0px 50px 10px black;
+            z-index: 2;
+            animation: animate 0.5s linear forwards;
+            animation-delay: 1.35s;
+        }
+
+        @keyframes animate {
+            100% {
+                height: 100%;
+            }
+        }
+
+        .box :nth-child(3) { /* corrected selector */
+            right: 0;
+            bottom: 0;
+            animation: animate 0.5s linear forwards;
+            animation-delay: 1.9s;
+        }
+
+        .box::before {
+            content: '';
+            background-color: black;
+            width: 200px; /* added 'px' for width value */
+            height: 47px;
+            position: absolute;
+            z-index: 5;
+            border-radius: 100%;
+            bottom: -35px;
+            left: -25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+</html>
